@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="akwad.css">
+  <title>Home Page</title>
+</head>
+<body>
+  <div class="home-container">
+    <!-- شريط العناوين -->
+    <div class="navbar">
+      <!-- أيقونة القائمة للموبايل -->
+      <div class="navbar-hamburger" onclick="toggleMenu()">
+        <span>☰</span>
+      </div>
+
+      <!-- روابط شريط العناوين -->
+      <div class="navbar-links">
+        <a href="#home">HOME</a>
+        <a href="#about-us">ABOUT US</a>
+        <a href="#our-services">OUR SERVICES</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- فيديو الخلفية -->
+    <div class="video-background">
+      <video autoplay loop muted>
+        <source src="images/vd1.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- اللوجو والكلمة تحتها -->
+    <div class="logo-section">
+      <div class="logo">
+        <img src="images/logo1.png" alt="Company Logo" class="logo-image" />
+      </div>
+      <div class="company-name">
+        <span class="blue">A  K  W  A  D </span>
+        <span class="orange"> S  O  F  T</span>
+      </div>
+    </div>
+
+    <!-- الزرين -->
+    <div class="buttons">
+      <a href="#about-us" class="btn orange-btn">ABOUT US</a>
+      <a href="#our-services" class="btn orange-btn">OUR SERVICES</a>
+    </div>
+  </div>
+
+  <!-- صفحة ABOUT US -->
+  <div id="about-us" class="about-us-container">
+    <div class="about-us-content">
+      <h1>About Us</h1>
+      <p>
+        At Akwad Soft Software Solutions, we have been delivering innovative tech solutions since 2014<br> We specialize in designing accounting and point-of-sale (POS) software tailored for various business activities<br> Additionally, we excel in developing mobile applications and websites<br> Our extensive experience and passion for technology make us a trusted partner in achieving your business goals.
+      </p>
+    </div>
+
+    <!-- الفيشون والمشون -->
+    <div class="vision-mission-container">
+      <div class="vision-section">
+        <div>
+          <img 
+            src="images/logo vision.png" 
+            alt="Vision Icon" 
+            class="circular-image"
+            onclick="alert('Image clicked!')" />
+        </div>
+        <h2>Vision</h2>
+        <p>
+          To become a leading provider of comprehensive<br>software solutions, driving digital transformation in<br>business management and enabling the success of<br>our clients locally and internationally.
+        </p>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="mission-section">
+        <div>
+          <img 
+            src="images/logo mision.png" 
+            alt="Mission Icon" 
+            class="circular-image"
+            onclick="alert('Image clicked!')" />
+        </div>
+        <h2>Mission</h2>
+        <p>
+          We are committed to developing high-quality <br>software solutions that meet our clients'<br>expectations, focusing on innovation and flexibility<br>to address the needs of diverse business sectors<br>Our goal is to deliver technology-driven services<br>that enhance performance, improve efficiency, and<br>support sustainable growth.
+        </p>
+      </div>
+    </div>
+
+    <!-- قسم الخدمات -->
+    <div class="service-section">
+      <div id="our-services" class="services-container">
+        <h1 class="service-title">Services</h1>
+        <div class="service-buttons">
+          <div class="service-row">
+            <button class="service-button">POS Software Solutions</button>
+            <button class="service-button">Mobile App Development</button>
+            <button class="service-button">Web Development</button>
+          </div>
+
+          <div class="service-row">
+            <button class="service-button">Custom Software Development</button>
+            <button class="service-button">Technical Support and Maintenance</button>
+            <button class="service-button">Hikvision Surveillance Cameras</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- قسم الابتكار -->
+    <div class="innovation-container">
+      <div class="left-section">
+        <h1 class="innovation-title">Innovation</h1>
+        <p class="innovation-text">
+          At Akod Software Solutions, our dedication to innovation and excellence<br>defines who we are and distinguishes us in the software development industry<br>We continuously push the boundaries of technology and creativity<br>to deliver tailored solutions for businesses of all sizes.
+        </p>
+      </div>
+
+      <div class="horizontal-line-section">
+        <div class="horizontal-line"></div>
+        <div class="circle-section">
+          <div class="circle-item">
+            <div class="circle"></div>
+            <h3>Customer-Centric Approach</h3>
+            <p>We focus on understanding our <br>clients' unique needs to craft <br>personalized software solutions <br>that streamline their operations <br>and enhance efficiency.</p>
+          </div>
+          <div class="circle-item">
+            <div class="circle"></div>
+            <h3>Advanced Technologies</h3>
+            <p>By leveraging cutting-edge tools<br>and modern development frameworks,<br> we ensure our products are robust, scalable, and future-ready.</p>
+          </div>
+          <div class="circle-item">
+            <div class="circle"></div>
+            <h3>Innovation at the Core</h3>
+            <p>Our team thrives on finding creative<br>and practical solutions to complex challenges, <br>helping businesses achieve their goals.</p>
+          </div>
+          <div class="circle-item">
+            <div class="circle"></div>
+            <h3>Ongoing Support</h3>
+            <p>We provide continuous technical <br> support and updates to keep your s<br>ystems running smoothly and efficiently.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- قسم الاتصال -->
+    <div id="contact" class="contact-container">
+    <div class="contact-container">
+      <div class="left-section">
+        
+        <h1 class="contact-title">Contact Us <i class="fas fa-address-book"></i></h1>
+        <p class="contact-info"><i class="fas fa-map-marker-alt"></i> Address: فرع رشدى : 458 شارع أبوقير – رشدى – عمارة سرايا رشدى – الدور 12</p>
+        <p class="contact-info"><i class="fas fa-phone-alt"></i> Contact Number: 01224272991</p>
+        <p class="contact-info"><i class="fas fa-phone-alt"></i> Contact Number: 01066177141</p>
+        <p class="contact-info"><i class="fas fa-envelope"></i> Email: codesystems.sw@gmail.com</p>
+
+        <div class="social-media">
+          <a href="https://www.facebook.com/codesystems.sw?mibextid=rS40aB7S9Ucbxw6v" target="_blank" class="social-button">
+            <img src="images/fb.jpeg" alt="Facebook" class="social-icon" />
+          </a>
+
+          <a href="https://www.instagram.com/codesystems.sw?igsh=MXQ5OTczNzQ5bGo0aQ==" target="_blank" class="social-button">
+            <img src="images/inst.jpeg" alt="Instagram" class="social-icon" />
+          </a>
+
+          <a href="https://www.youtube.com/@codesystemssw" target="_blank" class="social-button youtube">
+            <img src="images/yout.jpeg" alt="YouTube" class="social-icon" />
+          </a>
+        </div>
+      </div>
+    </div>
+      <div class="right-section">
+        <h2 class="quotation-title">Get Free Quotation Now!</h2>
+        <p class="service-text">Service you're looking for:</p>
+        <form class="contact-form">
+          <input type="text" placeholder="Enter your name" />
+          <input type="email" placeholder="Enter your email" />
+          <input type="phone" placeholder="Enter your phone number" />
+          <textarea placeholder="Any additional notes"></textarea>
+          <select>
+            <option value="service">Service</option>
+            <option value="POS Software Solutions">POS Software Solutions</option>
+            <option value="Mobile App Development">Mobile App Development</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Custom Software Development">Custom Software Development</option>
+            <option value="Technical Support and Maintenance">Technical Support and Maintenance</option>
+            <option value="Hikvision surveillance cameras">Hikvision surveillance cameras</option>
+          </select>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.navbar-links');
+      menu.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
