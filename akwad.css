@@ -81,8 +81,7 @@
     object-fit: cover; /* يضمن أن الفيديو يغطي كامل المساحة دون تشويه */
     z-index: -1;
   }
-
-
+  
   /* اللوجو والكلمة تحتها */
   .logo-section {
     position: absolute;
@@ -347,7 +346,7 @@
   
   /* تنسيق العنوان الرئيسي في صفحة Services */
   .service-section {
-    margin-top: 150px;
+    margin-top: 60px;
     padding: 0 20px;
   }
   
@@ -509,13 +508,12 @@
     text-align: center;
     color: white; /* لون النص */
   }
-  
   .circle-item p {
     font-size: 0.8rem;
     text-align: center;
     color: white; /* لون النص */
-    max-width: ذ100px; /* تحديد عرض النص لتجنب خروجه عن حدود العنصر */
-    word-wrap: break-word; /* تكسير النص الطويل */
+    max-width: 100px; /* تحديد عرض النص لتجنب خروجه عن حدود العنصر */
+    white-space: normal; /* النص هيظهر بشكل طبيعي و مش هيتكسر */
   }
 
   /* استجابة الشاشات الصغيرة */
