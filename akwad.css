@@ -51,7 +51,7 @@
       display: none;
       flex-direction: column;
       position: absolute;
-      top: 50px;
+      top: 100px;
       right: 0;
       background-color: #333;
       width: 200px;
@@ -81,40 +81,43 @@
     object-fit: cover; /* يضمن أن الفيديو يغطي كامل المساحة دون تشويه */
     z-index: -1;
   }
-  
-  /* اللوجو والكلمة تحتها */
-  .logo-section {
-    position: absolute;
-    top: 10px; /* المسافة من أعلى الصفحة */
-    left: 20px; /* المسافة من يسار الصفحة */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* محاذاة النص مع اللوجو */
-    z-index: 10;
-  }
-  
-  .logo-image {
-    width: 150px; /* عرض الصورة */
-    height: auto; /* جعل الارتفاع متناسق */
-    margin-bottom: 4px; /* مسافة صغيرة بين الصورة والنص */
-  }
-  
-  .company-name {
-    font-size: 20px; /* حجم النص الصغير */
-    
-    display: flex;
-    gap: 5px; /* مسافة بين الكلمات */
-  }
-  
-  .company-name .blue {
-    color: rgb(213, 224, 226);
-  }
-  
-  .company-name .orange {
-    color: orange;
-  }
-  
-  
+/* تنسيق اللوجو والنص */
+.logo-container {
+  position: fixed; /* تحديد مكان العنصر */
+  top: 0; /* وضعه في أعلى الصفحة */
+  right: 10px; /* مسافة من الجهة اليمنى */
+  display: flex; /* ترتيب العناصر جنب بعض */
+  align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
+  z-index: 1000; /* ضمان ظهور العنصر فوق باقي العناصر */
+  margin: 0; /* إزالة أي هوامش قد تؤثر على الموقع */
+  padding: 0; /* إزالة أي مسافات داخلية */
+}
+
+.logo-image {
+  width: 100px; /* عرض الصورة */
+  height: auto; /* جعل الارتفاع متناسق */
+  margin-left: 10px; /* مسافة بين اللوجو والنص */
+}
+
+.logo-text {
+  font-size: 1.2rem; /* حجم الخط للكلمة */
+  color: white; /* لون النص */
+  font-weight: bold; /* جعل النص أكثر وضوحاً */
+}
+
+.company-name {
+  font-size: 20px; /* حجم النص الصغير */
+  display: flex;
+  gap: 5px; /* مسافة بين الكلمات */
+}
+
+.company-name .blue {
+  color: rgb(213, 224, 226);
+}
+
+.company-name .orange {
+  color: orange;
+}
   /* الأزرار */
   .buttons {
     margin-bottom: 50px;
@@ -217,13 +220,80 @@
     margin-bottom: 20px; /* إضافة مسافة 20px تحت العنوان */
     font-weight: normal; /* التأكد من أن النص ليس سميكًا */
   }
+  .about-us-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
   
-  /* تنسيق الفقرة في صفحة About Us */
-  .about-us-content p {
-    color: black; /* اللون الأسود للنص */
-    font-size: 18px; /* حجم الخط 18px */
-    margin-bottom: 40px; /* زيادة المسافة بين النص في About Us و الفيشون والمشون */
-    line-height: 1.6; /* ارتفاع السطر لجعل النص أكثر وضوحًا */
+  .about-us-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .offerings {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* تقسيم العرض لعمودين */
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .offering {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .offering h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .offering p {
+    font-size: 1rem;
+    color: #555;
+  }
+  .video-section {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .video-section h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .videos-container {
+    display: flex; /* عرض الفيديوهات بجانب بعض */
+    justify-content: space-between; /* توزيع الفيديوهات بشكل متساوي */
+    gap: 20px; /* المسافة بين الفيديوهات */
+  }
+  
+  .video {
+    flex: 1;
+    max-width: 30%; /* تحديد الحد الأقصى لعرض كل فيديو */
+  }
+  
+  .video video {
+    width: 100%;
+    height: auto; /* لضبط الحجم بشكل مناسب */
+  }
+  @media (max-width: 768px) {
+    .videos-container {
+      display: block; /* جعل الفيديوهات تظهر في ترتيب عمودي */
+    }
+  
+    .video {
+      margin-bottom: 20px; /* إضافة مسافة بين الفيديوهات */
+      width: 200%; /* جعل عرض الفيديو 100% ليتناسب مع عرض الشاشة */
+      height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+    }
   }
   
   .vision-mission-container {
@@ -269,13 +339,7 @@
   .circular-btn i {
     font-size: 20px; /* حجم الأيقونة */
   }
-  
-  /* إضافة box-sizing لجميع العناصر لتحديد الحجم بشكل صحيح */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+
   
   /* استجابة الشاشات الصغيرة */
   @media (max-width: 768px) {
@@ -423,145 +487,54 @@
       font-size: 0.9rem; /* تصغير حجم النص */
     }
   }
-  
-  /* الخلفية */
-.innovation-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #084e74; /* اللون الكحلي */
-    color: white; /* النص باللون الأبيض */
-    padding: 50px;
-    height: auto; /* السماح بالتمدد حسب المحتوى */
+  .team-section {
+    text-align: center;
+    padding: 20px;
   }
   
-  /* القسم الأيسر */
-  .left-section {
-    flex: 1;
-    text-align: left; /* محاذاة النص لليسار */
-    width: 100%;
-  }
-  
-  .innovation-title {
-    font-size: 3rem;
-    font-weight: normal; /* إزالة السمك */
+  .team-section h1 {
+    font-size: 2rem;
     margin-bottom: 20px;
-    text-align: center; /* توسيط النص */
   }
   
-  .innovation-text {
-    font-size: 1rem;
-    line-height: 1.8;
-    font-weight: normal; /* إزالة السمك */
-    text-align: center; /* توسيط النص */
-    margin-bottom: 30px; /* إضافة مسافة بين النص وباقي العناصر */
+  .team-container {
+    display: flex; /* ترتيب الصور جنب بعض */
+    justify-content: space-between; /* توزيع الصور بشكل متساوي */
+    gap: 20px; /* المسافة بين الصور */
   }
   
-  /* قسم الخط الأفقي */
-  .horizontal-line-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .team-member {
+    flex: 1;
+    max-width: 30%; /* الحد الأقصى لعرض كل صورة */
+    padding: 10px;
+  }
+  
+  .team-member img {
     width: 100%;
+    height: auto; /* لضبط الصورة لتكون بحجم مناسب */
+    border-radius: 10px; /* لتنعيم الحواف */
   }
   
-  /* قسم الدوائر */
-  .circle-section {
-    display: flex;
-    justify-content: space-around; /* توزيع المسافات بشكل متساوٍ */
-    flex-wrap: wrap; /* السماح بالانتقال إلى صفوف عند الحاجة */
-    width: 100%; /* عرض الدوائر على كامل الحاوية */
-    gap: 20px; /* المسافة بين الدوائر */
-    margin-top: 20px; /* مسافة إضافية أعلى القسم */
+  .team-member h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
   }
   
-  .circle-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative; /* لمحاذاة العنوان والنص مع الدائرة */
-    width: 100px; /* تحديد عرض مناسب للدوائر */
-  }
-  
-  /* تنسيق الدوائر */
-  .circle {
-    background-color: lightblue;
-    width: 80px; /* حجم ثابت للدائرة */
-    height: 80px; /* يجعلها دائرة */
-    border-radius: 50%; /* يجعل الشكل دائري */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease; /* تأثير عند التمرير */
-  }
-  
-  .circle:hover {
-    background-color: orange; /* لون عند التمرير */
-  }
-  
-  /* تنسيقات النصوص */
-  .circle-item h3 {
+  .team-member p {
     font-size: 1rem;
-    margin: 10px 0 5px 0;
-    text-align: center;
-    color: white; /* لون النص */
+    color: #555;
   }
-  .circle-item p {
-    font-size: 0.8rem;
-    text-align: center;
-    color: white; /* لون النص */
-    max-width: 100px; /* تحديد عرض النص لتجنب خروجه عن حدود العنصر */
-    white-space: normal; /* النص هيظهر بشكل طبيعي و مش هيتكسر */
-  }
-
-  /* استجابة الشاشات الصغيرة */
   @media (max-width: 768px) {
-    .innovation-container {
-      padding: 20px; /* تقليل المسافات الداخلية */
+    .team-container {
+      display: block; /* ترتيب الصور عموديًا على الشاشات الصغيرة */
     }
   
-    .innovation-title {
-      font-size: 2.5rem; /* تقليل حجم العنوان */
-      margin-bottom: 40px; /* تقليل المسافة أسفل العنوان */
+    .team-member {
+      margin-bottom: 20px; /* إضافة مسافة بين كل عضو */
+      width: 100%; /* جعل الصور تأخذ عرض الشاشة بالكامل */
+      height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
     }
-  
-    .innovation-text {
-      font-size: 0.9rem; /* تصغير حجم النص */
-      line-height: 1.5; /* تحسين المسافة بين الأسطر */
-      margin-bottom: 20px; /* تقليل المسافة أسفل النص */
-    }
-  
-    .circle-section {
-      width: 100%; /* جعل العرض 100% للشاشات الصغيرة */
-      flex-wrap: wrap; /* جعل العناصر تنكسر للأسطر التالية إذا لم تكن كافية */
-      justify-content: center; /* توسيط الدوائر */
-      gap: 20px; /* إضافة مسافة بين الدوائر */
-    }
-  
-    .circle-item {
-      width: 80px; /* تصغير حجم العناصر */
-      text-align: center; /* توسيط النصوص */
-    }
-  
-    .circle {
-      width: 60px; /* تصغير حجم الدائرة */
-      height: 60px;
-    }
-  
-    .circle-item h3 {
-      font-size: 0.8rem; /* تقليل حجم العناوين */
-      margin-bottom: 5px; /* تقليل المسافة أسفل العنوان */
-    }
-  
-    .circle-item p {
-      font-size: 0.7rem; /* تقليل حجم النص */
-    }
-  }
-  
-  
-  
+  } 
   .contact-container {
     display: flex;
     justify-content: space-between;
