@@ -1,0 +1,900 @@
+
+/* 🌟 ضبط الصفحة لتملأ الشاشة بدون زيادات */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* منع التمرير الجانبي */
+}
+
+/* 🌟 جعل الصفحة تملأ الشاشة بالكامل */
+.home-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+/* 🌟 شريط العناوين */
+.navbar {
+  position: absolute;
+  top: 20px;
+  left: 20px;  /* بدل right: 20px; */
+  right: auto;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 20px;
+  background: transparent; /* إزالة اللون الخلفي */
+}
+
+/* 🌟 قائمة الروابط */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: orange;
+}
+
+/* 🌟 القوائم المنسدلة */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8); /* خلفية شفافة */
+  padding: 10px;
+  list-style: none;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+  transform: translateY(10px);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🌟 السهم */
+.arrow {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+/* 🌟 زر القائمة للموبايل */
+.navbar-hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* 🌟 ضبط القوائم على الموبايل */
+@media (max-width: 768px) {
+  .navbar {
+      padding: 10px;
+      top: 10px;
+      right: 10px;
+  }
+
+  .navbar-hamburger {
+      display: block;
+  }
+
+  .navbar-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      width: 100%;
+      padding: 20px;
+      z-index: 1000;
+      text-align: center;
+  }
+
+  .navbar-links.open {
+      display: flex;
+  }
+
+  .navbar-links a {
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* 🌟 القوائم المنسدلة على الموبايل */
+  .dropdown-menu {
+      position: static;
+      background: none;
+      padding-left: 0;
+      opacity: 1;
+      display: none;
+  }
+
+  .dropdown.open .dropdown-menu {
+      display: block;
+  }
+}
+  /* خلفية الفيديو */
+  .video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* يجعل الفيديو يغطي العرض بالكامل */
+    height: 100%; /* يجعل الفيديو يغطي الارتفاع بالكامل */
+    object-fit: cover; /* يضمن أن الفيديو يغطي كامل المساحة دون تشويه */
+    z-index: -1;
+  }
+   /* تنسيق اللوجو والنص */
+   .logo-section {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 80px;
+    height: auto;
+}
+
+.company-name {
+    font-size: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.company-name .blue {
+    color: rgb(213, 224, 226);
+}
+
+.company-name .orange {
+    color: orange;
+}
+
+/* الأزرار */
+.buttons {
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid orange;
+    background-color: transparent;
+    color: orange;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: orange;
+    color: white;
+}
+
+/* تنسيق الموبايل */
+@media (max-width: 768px) {
+    .navbar-links a {
+        font-size: 14px;
+    }
+
+    .company-name {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+   /* تنسيق صفحة About Us */
+   .about-us-container {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px 20px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    border: 2px solid #133a60;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.about-us-container h1, .about-us-container h2 {
+    color: #133a60;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-us-container p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .company-name {
+        font-size: 18px;
+    }
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.offerings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.offering {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.offering h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+/* For screens 768px or smaller */
+@media (max-width: 768px) {
+    .offerings {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .offering {
+        width: 100%;
+        padding: 15px; /* smaller padding */
+    }
+    .offering h3 {
+        font-size: 18px; /* smaller text for mobile */
+    }
+}
+
+/* For screens 480px or smaller */
+@media (max-width: 480px) {
+    .offerings {
+        display: grid;
+        grid-template-columns: 1fr; /* single column for smaller screens */
+        gap: 10px;
+    }
+    .offering {
+        width: 100%;
+        padding: 10px; /* even smaller padding */
+    }
+    .offering h3 {
+        font-size: 16px; /* adjust font size for very small screens */
+    }
+}
+
+.video-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.video-section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.videos-container {
+  display: flex; /* عرض الفيديوهات بجانب بعض */
+  justify-content: space-between; /* توزيع الفيديوهات بشكل متساوي */
+  gap: 20px; /* المسافة بين الفيديوهات */
+  flex-wrap: wrap; /* السماح بتوزيع الفيديوهات في أسطر جديدة إذا لزم الأمر */
+}
+
+.video {
+  flex: 1;
+  max-width: 30%; /* تحديد الحد الأقصى لعرض كل فيديو */
+}
+
+.video video {
+  width: 100%;
+  height: auto; /* لضبط الحجم بشكل مناسب */
+  border-radius: 10px; /* يمكن إضافة حد دائري للفيديو */
+}
+/* For screens 768px or smaller (tablets and below) */
+@media (max-width: 768px) {
+  .videos-container {
+    display: flex; /* الفيديوهات جنب بعض */
+    justify-content: center; /* محاذاة الفيديوهات في المنتصف */
+  }
+
+  .video {
+    width: 45%; /* عرض الفيديو 45% على الشاشات الصغيرة */
+    margin-bottom: 20px; /* المسافة بين الفيديوهات */
+  }
+
+  .video video {
+    width: 100%; /* الفيديو يعرض كامل عرض العنصر */
+    height: auto; /* الحفاظ على التناسب بين العرض والارتفاع */
+    max-height: 400px; /* يمكن تحديد الحد الأقصى للارتفاع حسب الحاجة */
+  }
+}
+
+/* For screens 480px or smaller (smaller devices) */
+@media (max-width: 480px) {
+  .videos-container {
+    display: flex; /* الفيديوهات جنب بعض */
+    justify-content: center; /* محاذاة الفيديوهات في المنتصف */
+  }
+
+  .video {
+    width: 45%; /* عرض الفيديو 45% بحيث يكون الفيديوهات جنب بعض */
+    margin-bottom: 20px; /* المسافة بين الفيديوهات */
+  }
+
+  .video video {
+    width: 100%; /* الفيديو يعرض كامل عرض العنصر */
+    height: auto;
+    max-height: 350px; /* يمكن تقليل الارتفاع أكثر حسب الشاشة الصغيرة */
+  }
+}
+  /* الحاوية الرئيسية */
+.vision-mission-container {
+  display: flex;
+  justify-content: space-between; /* توزيع الأقسام بشكل متساوي */
+  align-items: flex-start;
+  margin-top: 60px; /* زيادة المسافة بين About Us و Vision & Mission */
+  opacity: 0;
+  animation: fadeInUp 1s forwards; /* تطبيق الأنيمشن على حاوية الفيشون والمشون */
+  flex-wrap: wrap; /* للسماح للأقسام بالانتقال لأسطر جديدة على الشاشات الصغيرة */
+}
+
+/* الأقسام الخاصة بـ Vision و Mission */
+.vision-section, .mission-section {
+  width: 48%; /* جعل العرض 48% ليكونوا جنب بعض */
+  margin-bottom: 20px; /* إضافة مسافة بين الأقسام */
+}
+
+.vision-section h2, .mission-section h2 {
+  color: #003366; /* اللون الكحلي للعناوين */
+  margin-bottom: 15px; /* إضافة مسافة بين العنوان والنص */
+  font-weight: normal; /* إزالة السمك من الخط */
+}
+
+.vision-section p, .mission-section p {
+  margin-top: 10px; /* إضافة مسافة بين النص والعنوان */
+  font-size: 16px; /* حجم النص في الفقرات */
+  line-height: 1.6; /* تحسين التباعد بين الأسطر */
+}
+
+/* إزالة الخط العمودي بين الأقسام */
+.separator {
+  display: none; /* إزالة الخط العمودي تمامًا */
+}
+
+/* تنسيق الصورة الدائرية */
+.circular-image {
+  width: 100px; /* عرض الصورة */
+  height: 100px; /* ارتفاع الصورة */
+  border-radius: 50%; /* لجعل الصورة دائرية */
+  object-fit: cover; /* لضمان عرض الصورة بشكل جيد داخل الحاوية */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف للصورة */
+  cursor: pointer; /* المؤشر يصبح على شكل يد عند التمرير فوقها */
+}
+
+/* استجابة الشاشات الصغيرة */
+@media (max-width: 768px) {
+  /* ترتيب الأقسام عموديًا */
+  .vision-mission-container {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا في الشاشات الصغيرة */
+    justify-content: center;
+    align-items: center; /* محاذاة العناصر في المركز */
+    margin-top: 20px; /* تقليل المسافة بين الأقسام */
+  }
+
+  /* تعديل عرض الأقسام الخاصة بـ Vision و Mission */
+  .vision-section, .mission-section {
+    width: 100%; /* جعل العرض 100% ليشغل كامل المساحة */
+    margin-bottom: 20px; /* إضافة مسافة بين الأقسام */
+    padding: 0 10px; /* إضافة بعض المسافة الداخلية */
+  }
+
+  /* تقليل حجم الصور الدائرية */
+  .circular-image {
+    width: 80px; /* تقليل الحجم */
+    height: 80px;
+    margin-bottom: 10px; /* مسافة أسفل الصورة */
+  }
+
+  /* تصغير حجم النصوص */
+  .vision-section p, 
+  .mission-section p {
+    font-size: 14px; /* تصغير حجم النصوص */
+  }
+
+  /* تحسين التباعد بين النصوص في الشاشة الصغيرة */
+  .vision-section p, .mission-section p {
+    font-size: 14px; /* تصغير حجم النصوص */
+    margin-bottom: 20px; /* زيادة المسافة بين الفقرات */
+  }
+}
+
+/* تصغير حجم النصوص في الشاشات الأصغر من 480px */
+@media (max-width: 480px) {
+  .vision-section p, 
+  .mission-section p {
+    font-size: 12px; /* تصغير النصوص أكثر */
+  }
+
+  .circular-image {
+    width: 70px; /* تقليل الحجم أكثر */
+    height: 70px;
+  }
+}
+  /* تنسيق العنوان الرئيسي في صفحة Services */
+  .service-section {
+    margin-top: 60px;
+    padding: 0 20px;
+  }
+  
+  /* تنسيق العنوان */
+  .service-title {
+    font-size: 4rem;
+    margin-bottom: 50px;
+    font-weight: normal;
+    color: #003366;
+    text-align: center; /* محاذاة النص في المنتصف */
+  }
+  
+  /* تنسيق الأزرار */
+  .service-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  /* تنسيق صف الأزرار */
+  .service-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* تقليل المسافة بين الأزرار */
+    margin-bottom: 30px; /* تقليل المسافة السفلية بين الصفوف */
+    flex-wrap: wrap; /* السماح للأزرار بالالتفاف عند عدم وجود مساحة كافية */
+    width: 100%;
+  }
+  
+  /* تنسيق الأزرار */
+  .service-button {
+    padding: 15px 20px;
+    background-color: orange;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    width: calc(100% - 40px); /* تقليل العرض ليكون متناسقًا مع الحواف */
+    max-width: 300px; /* تحديد الحد الأقصى لعرض الأزرار */
+    text-align: center; /* محاذاة النص في منتصف الزر */
+    margin: 10px auto; /* إضافة مسافة عمودية بين الأزرار */
+    box-sizing: border-box; /* التأكد من أن الحشو لا يؤثر على العرض */
+    border-radius: 50px; /* تحويل الزر إلى شكل بيضاوي */
+  }
+  /* تأثير التمرير على الأزرار */
+.service-button:hover {
+  background-color: darkorange;
+}
+  /* إزالة التسطير من الروابط */
+  a {
+    text-decoration: none;
+  }
+  
+  /* استجابة الشاشات الصغيرة */
+  @media (max-width: 768px) {
+    .service-title {
+      font-size: 2rem; /* تصغير حجم النص في العنوان */
+      margin-bottom: 30px;
+    }
+  
+    .service-row {
+      flex-direction: column; /* ترتيب الأزرار عموديًا */
+      gap: 15px; /* تقليل المسافة بين الأزرار */
+    }
+  
+    .service-button {
+      width: 90%; /* جعل الأزرار تأخذ عرض 90% من الشاشة */
+      max-width: none; /* إزالة الحد الأقصى للعرض */
+      padding: 10px 15px; /* تقليل الحشو */
+      font-size: 0.9rem; /* تصغير حجم النص */
+    }
+  }
+    
+/* تنسيق العنوان الرئيسي */
+.products-title {
+  text-align: center;
+  font-size: 30px;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+/* تنسيق الحاوية الرئيسية للمنتجات */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+}
+
+/* تنسيق الصور */
+.product-item img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* تنسيق النص تحت الصور */
+.product-item h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+/* تنسيق المنتجات على شاشات الموبايل */
+@media (max-width: 768px) {
+  .products {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .product-item img {
+      max-width: 120px;
+  }
+
+  .product-item h3 {
+      font-size: 16px;
+  }
+}
+
+
+
+
+/* تنسيق القسم الخاص بالفريق */
+.team-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* تنسيق العنوان */
+.team-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color:#003366;
+}
+
+/* الحاوية الرئيسية للفريق */
+.team-container {
+  display: flex;
+  justify-content: space-evenly; /* توزيع الأعضاء بالتساوي */
+  gap: 30px; /* زيادة المسافة بين الأعضاء */
+  flex-wrap: wrap;  /* السماح بلف الأعضاء عند الحاجة */
+  padding: 20px;
+  max-width: 90%;
+  margin: auto;
+}
+
+/* تنسيق صورة العضو */
+.team-member img {
+  width: 120px;  /* تحديد عرض الصورة */
+  height: 120px; /* تحديد ارتفاع الصورة */
+  border-radius: 50%;  /* جعل الصورة دائرية */
+  border: 4px solid #ddd;  /* حد خفيف حول الصورة */
+  margin-bottom: 15px;
+}
+
+/* تنسيق اسم العضو والمسمى الوظيفي */
+.team-member h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* استجابة شاشات الموبايل */
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column; /* ترتيب الأعضاء تحت بعض */
+    align-items: center; /* محاذاة للمنتصف */
+  }
+
+  /* تعديل عرض الأعضاء */
+  .team-member {
+    width: 100%; /* كل عضو يأخذ عرض مناسب */
+    text-align: center; /* محاذاة المحتوى في المنتصف */
+    margin-bottom: 20px; /* مسافة بين الأعضاء */
+  }
+
+  /* تعديل حجم الصور على الموبايل */
+  .team-member img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* استجابة شاشات صغيرة جدًا */
+@media (max-width: 480px) {
+  .team-container {
+    flex-direction: column; /* ترتيب الأعضاء تحت بعض */
+    align-items: center; /* محاذاة للمنتصف */
+  }
+
+  /* تعديل حجم الصور على الشاشات الصغيرة */
+  .team-member img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+  /* الجزء الأيسر */
+  .left-section {
+    background-color: #001f3f; /* الخلفية الكحلية */
+    color: white;
+    flex: 1; /* تقسيم الصفحة بالتساوي */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 30px; /* زيادة الحشوة لتوسيع المسافة بين المحتوى والحواف */
+  }
+  
+  .contact-title {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    margin-left: 20px; /* لإبعاد العنوان عن الحافة اليسرى */
+  }
+  
+  .contact-info {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-left: 20px; /* لإبعاد النصوص عن الحافة اليسرى */
+  }
+  
+  .contact-info i {
+    margin-right: 10px; /* المسافة بين الأيقونات والنص */
+  }
+  
+  /* تنسيق الأزرار */
+  .social-media {
+    text-align: center;
+    margin-top: 20px;  /* تعديل المسافة العلوية حسب الحاجة */
+  }
+  
+  /* تعديل زر الأيقونات */
+.social-button {
+  background-color: transparent;  /* خلفية شفافة */
+  border: none;                   /* إزالة الحدود */
+  padding: 10px;                  /* زيادة المساحة الداخلية للزر */
+  width: 70px;                    /* تحديد عرض الزر */
+  height: 70px;                   /* تحديد ارتفاع الزر */
+  display: inline-block;          /* لجعل الزر يتصرف كعنصر كتلي */
+  cursor: pointer;                /* تغيير شكل المؤشر عند المرور */
+}
+  .social-button:hover {
+    background-color: #365899; /* تغيير اللون عند التمرير */
+  }
+  /* تعديل الصورة داخل الزر لتعبئته بالكامل */
+.social-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  /* الجزء الأيمن */
+  .right-section {
+    background-color: white; /* الخلفية البيضاء */
+    color: #001f3f; /* النص باللون الكحلي */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+  }
+  
+  .quotation-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .service-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .contact-form button {
+    background-color: orange;
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+  }
+  
+  .contact-form button:hover {
+    background-color: darkorange;
+  }
+  
+  
+  /* استجابة الشاشات الصغيرة */
+  @media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column; /* ترتيب الأقسام عموديًا */
+      height: auto; /* جعل الارتفاع تلقائيًا */
+    }
+  
+    /* الجزء الأيسر */
+    .left-section {
+      padding: 20px; /* تقليل الحشوة */
+      text-align: center; /* توسيط النصوص */
+    }
+  
+    .contact-title {
+      font-size: 2rem; /* تصغير حجم العنوان */
+      margin-bottom: 30px; /* تقليل المسافة السفلية */
+      margin-left: 0; /* إزالة المسافة الجانبية */
+    }
+  
+    .contact-info {
+      font-size: 0.9rem; /* تصغير حجم النص */
+      margin-left: 0; /* إزالة المسافة الجانبية */
+    }
+  
+    .social-media {
+      justify-content: center; /* توسيط الأزرار */
+      margin-left: 0; /* إزالة المسافة الجانبية */
+    }
+  
+    .social-button {
+      width: 50px; /* تصغير عرض الزر */
+      height: 50px; /* تصغير ارتفاع الزر */
+    }
+  
+    /* الجزء الأيمن */
+    .right-section {
+      padding: 20px; /* تقليل الحشوة */
+      text-align: center; /* توسيط النصوص */
+    }
+  
+    .quotation-title {
+      font-size: 2rem; /* تصغير حجم العنوان */
+      margin-bottom: 15px; /* تقليل المسافة السفلية */
+    }
+  
+    .service-text {
+      font-size: 1rem; /* تصغير النص */
+      margin-bottom: 15px; /* تقليل المسافة السفلية */
+    }
+  
+    .contact-form {
+      width: 100%; /* جعل الفورم يأخذ العرض الكامل */
+    }
+  
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      font-size: 0.9rem; /* تصغير حجم النصوص داخل الحقول */
+      padding: 8px; /* تقليل الحشوة الداخلية */
+    }
+  
+    .contact-form button {
+      font-size: 0.9rem; /* تصغير النص داخل الزر */
+      padding: 12px; /* تقليل الحشوة */
+    }
+  }
+  
+  
+  
