@@ -1,0 +1,546 @@
+/* Reset بعض العناصر الأساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    direction: rtl;
+}
+/* تصميم شريط العناوين */
+.header {
+    display: flex;
+    justify-content: flex-start; /* دفع العناوين إلى اليسار */
+    background: rgb(187, 214, 254);
+    padding: 5px 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 5px; /* تقليل المسافات بين العناوين */
+    position: relative;
+    z-index: 1000; /* جعل الشريط فوق المحتوى */
+}
+/* كل عنوان يكون على اليمين أكثر */
+.category {
+    position: relative;
+}
+
+/* تصميم زر العنوان */
+.category-btn {
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* مسافة صغيرة بين العنوان والسهم */
+}
+
+/* تصميم السهم */
+.arrow {
+    font-size: 12px;
+    color: #555;
+}
+
+/* القائمة الفرعية */
+.sub-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 180px;
+    top: 40%;
+    right: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 2000; /* ضمان ظهور القوائم فوق المحتوى */
+}
+
+/* تصميم أزرار القائمة الفرعية */
+.sub-menu button {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    white-space: nowrap; /* منع كسر النص */
+}
+
+.sub-menu button:hover {
+    background: #ddd;
+}
+
+/* عند تمرير الماوس على الزر، تظهر القائمة الفرعية */
+.category:hover .sub-menu {
+    display: block;
+}
+
+
+/* تنسيق الزر الصفحة الرئيسية */
+.category {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.category li {
+  list-style: none;
+}
+
+.home-btn {
+  display: inline-block;
+  background: #f4a261; /* لون برتقالي جذاب */
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-btn:hover {
+  background: #e76f51; /* لون أغمق عند المرور عليه */
+  transform: translateY(-2px);
+}
+
+
+/* الحاوية الرئيسية */
+.main-container {
+    display: flex;
+    margin: 20px;
+}
+/* الحاوية الجانبية للفئات */
+.sidebar {
+    width: 20%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    display: block; /* في الشاشات الكبيرة */
+}
+
+/* العناوين داخل القائمة الجانبية */
+.sidebar h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+/* الأزرار داخل القائمة الجانبية */
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: right;
+}
+
+/* تأثير عند التمرير على الأزرار */
+.sidebar button:hover {
+    background-color: #ddd;
+}
+
+/* الروابط داخل القائمة الجانبية */
+.sidebar a {
+    display: block;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* تأثير عند التمرير على الروابط */
+.sidebar a:hover {
+    background: #066fde;
+    color: white;
+}
+
+/* استعلامات الوسائط لتصميم متجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    /* إخفاء القائمة الجانبية في الشاشات الصغيرة */
+    .sidebar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    /* عرض الزر */
+    .sidebar-button {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #066fde;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* تأثير عند التمرير على الزر */
+    .sidebar-button:hover {
+        background-color: #045b9e;
+    }
+}
+/* قسم المنتجات */
+.products-section {
+    width: 80%; /* تحديد عرض قسم المنتجات ليكون 80% من العرض الكلي للصفحة */
+    margin-right: 20px; /* إضافة مسافة 20px من الجهة اليمنى لقسم المنتجات */
+}
+
+/* الفلاتر */
+.filters {
+    display: flex; /* استخدام Flexbox لترتيب الفلاتر بشكل أفقي */
+    justify-content: flex-end; /* محاذاة الفلاتر إلى الجهة اليمنى */
+    margin-bottom: 20px; /* إضافة مسافة 20px من الأسفل بين الفلاتر والمحتوى الذي تحتها */
+}
+
+.sort-container {
+    position: relative; /* تحديد أن الـ sort-container سيكون موضعه بشكل مطلق بالنسبة للعناصر المحيطة به */
+}
+.sort-button {
+    background-color: #066fde; /* تحديد لون خلفية الزر باللون الرمادي الداكن */
+    color: white; /* تحديد لون النص داخل الزر باللون الأبيض */
+    border: none; /* إزالة الحدود من حول الزر */
+    padding: 10px 20px; /* إضافة حشوة حول النص داخل الزر (10px من الأعلى والأسفل، 20px من اليمين واليسار) */
+    cursor: pointer; /* تغيير شكل المؤشر إلى يد عند المرور فوق الزر */
+    font-size: 16px; /* تحديد حجم الخط داخل الزر */
+    border-radius: 4px; /* إضافة حواف دائرية للزر */
+}
+.sort-dropdown {
+    display: none; /* إخفاء القائمة المنسدلة بشكل افتراضي */
+    position: absolute; /* تحديد موضع القائمة بحيث تكون بشكل مطلق بالنسبة للعناصر الأخرى */
+    background-color: #fff; /* تحديد خلفية بيضاء للقائمة المنسدلة */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* إضافة تأثير الظل حول القائمة */
+    border-radius: 4px; /* تحديد حواف دائرية للقائمة */
+    z-index: 1; /* تعيين قيمة z-index لضمان ظهور القائمة فوق العناصر الأخرى */
+    transform: translateX(-50%); /* تحريك القائمة لتكون في المنتصف بشكل دقيق */
+    top: 40px; /* تحديد المسافة بين القائمة والعنصر الذي يعرضها */
+    left: unset; /* تعطيل تحديد left لجعل right هو المسؤول عن الموضع */
+}
+
+.sort-dropdown button {
+    display: block; /* جعل الزر عنصرًا يعرض بشكل كامل */
+    width: 100%; /* جعل عرض الزر 100% من مساحة القائمة */
+    padding: 10px; /* إضافة حشوة حول النص داخل الزر */
+    text-align: left; /* محاذاة النص داخل الزر لليسار */
+    border: none; /* إزالة الحدود من حول الزر */
+    background-color: #fff; /* تحديد خلفية الزر باللون الأبيض */
+    cursor: pointer; /* تغيير شكل المؤشر إلى يد عند المرور فوق الزر */
+    font-size: 14px; /* تحديد حجم خط النص داخل الزر */
+}
+
+.sort-dropdown button:hover {
+    background-color: #f4f4f4; /* تغيير خلفية الزر إلى لون فاتح عند التمرير فوقه */
+}
+
+.sort-container:hover .sort-dropdown {
+    display: block; /* عرض القائمة المنسدلة عند التمرير فوق العنصر الذي يحتوي عليها */
+}
+/* المنتجات */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: 90%;
+  background: white; /* خلفية بيضاء */
+}
+
+.product-card {
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card {
+  box-shadow: none;  /* إزالة الظل */
+  border: none;      /* إزالة البراويز */
+  background: none;  /* إزالة الخلفية */
+}
+
+/* الفئات */
+.categories-container {
+  display: flex;
+  flex-direction: column; /* ترتيب الفئات تحت بعض */
+  gap: 10px;
+}
+
+.category-item {
+  padding: 10px;
+  border: 1px solid #ccc; /* براويز عادية */
+  background: white;
+  text-align: center;
+}
+/* زر الترتيب */
+.sort-container {
+  position: relative;
+  display: inline-block;
+}
+
+.sort-button {
+  background:  #066fde; 
+  border: 1px solid #dd7c0e;
+  padding: 10px;
+  cursor: pointer;
+  width: 150px; /* حجم مناسب للزر */
+  text-align: center;
+}
+
+.sort-dropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 10; /* لضمان ظهوره فوق العناصر الأخرى */
+}
+
+.sort-button:hover + .sort-dropdown,
+.sort-dropdown:hover {
+  display: block;
+}
+/* دعم الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .product {
+        width: calc(50% - 20px); /* تغيير عرض المنتج ليصبح 50% بحيث يكون هناك منتجان في السطر */
+    }
+
+    .product h4 {
+        font-size: 16px; /* تقليل حجم الخط لاسم المنتج ليتناسب مع الشاشات الصغيرة */
+    }
+
+    .product p {
+        font-size: 12px; /* تقليل حجم الخط للوصف ليتناسب مع الشاشات الصغيرة */
+    }
+}
+
+/* دعم الشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+    .product {
+        width: calc(100% - 20px); /* تغيير عرض المنتج ليصبح 100% بحيث يكون هناك منتج واحد في السطر */
+    }
+
+    .product h4 {
+        font-size: 14px; /* تقليل حجم الخط لاسم المنتج أكثر ليصبح مناسباً للشاشات الصغيرة */
+    }
+
+    .product p {
+        font-size: 10px; /* تقليل حجم الخط للوصف بشكل أكبر ليتناسب مع الشاشات الصغيرة */
+    }
+}
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+  }
+    /* الجزء الأيسر */
+    .left-section {
+      background-color: #001f3f; /* الخلفية الكحلية */
+      color: white;
+      flex: 1; /* تقسيم الصفحة بالتساوي */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 30px; /* زيادة الحشوة لتوسيع المسافة بين المحتوى والحواف */
+    }
+    
+    .contact-title {
+      font-size: 3rem;
+      margin-bottom: 60px;
+      margin-left: 20px; /* لإبعاد العنوان عن الحافة اليسرى */
+    }
+    
+    .contact-info {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      margin-left: 20px; /* لإبعاد النصوص عن الحافة اليسرى */
+    }
+    
+    .contact-info i {
+      margin-right: 10px; /* المسافة بين الأيقونات والنص */
+    }
+    
+    /* تنسيق الأزرار */
+    .social-media {
+      text-align: center;
+      margin-top: 20px;  /* تعديل المسافة العلوية حسب الحاجة */
+    }
+    
+    /* تعديل زر الأيقونات */
+  .social-button {
+    background-color: transparent;  /* خلفية شفافة */
+    border: none;                   /* إزالة الحدود */
+    padding: 10px;                  /* زيادة المساحة الداخلية للزر */
+    width: 70px;                    /* تحديد عرض الزر */
+    height: 70px;                   /* تحديد ارتفاع الزر */
+    display: inline-block;          /* لجعل الزر يتصرف كعنصر كتلي */
+    cursor: pointer;                /* تغيير شكل المؤشر عند المرور */
+  }
+    .social-button:hover {
+      background-color: #365899; /* تغيير اللون عند التمرير */
+    }
+    /* تعديل الصورة داخل الزر لتعبئته بالكامل */
+  .social-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+    /* الجزء الأيمن */
+    .right-section {
+      background-color: white; /* الخلفية البيضاء */
+      color: #001f3f; /* النص باللون الكحلي */
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px;
+    }
+    
+    .quotation-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .service-text {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-form label {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    .contact-form button {
+      background-color: orange;
+      color: white;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+    }
+    
+    .contact-form button:hover {
+      background-color: darkorange;
+    }
+    
+    
+    /* استجابة الشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column; /* ترتيب الأقسام عموديًا */
+        height: auto; /* جعل الارتفاع تلقائيًا */
+      }
+    
+      /* الجزء الأيسر */
+      .left-section {
+        padding: 20px; /* تقليل الحشوة */
+        text-align: center; /* توسيط النصوص */
+      }
+    
+      .contact-title {
+        font-size: 2rem; /* تصغير حجم العنوان */
+        margin-bottom: 30px; /* تقليل المسافة السفلية */
+        margin-left: 0; /* إزالة المسافة الجانبية */
+      }
+    
+      .contact-info {
+        font-size: 0.9rem; /* تصغير حجم النص */
+        margin-left: 0; /* إزالة المسافة الجانبية */
+      }
+    
+      .social-media {
+        justify-content: center; /* توسيط الأزرار */
+        margin-left: 0; /* إزالة المسافة الجانبية */
+      }
+    
+      .social-button {
+        width: 50px; /* تصغير عرض الزر */
+        height: 50px; /* تصغير ارتفاع الزر */
+      }
+    
+      /* الجزء الأيمن */
+      .right-section {
+        padding: 20px; /* تقليل الحشوة */
+        text-align: center; /* توسيط النصوص */
+      }
+    
+      .quotation-title {
+        font-size: 2rem; /* تصغير حجم العنوان */
+        margin-bottom: 15px; /* تقليل المسافة السفلية */
+      }
+    
+      .service-text {
+        font-size: 1rem; /* تصغير النص */
+        margin-bottom: 15px; /* تقليل المسافة السفلية */
+      }
+    
+      .contact-form {
+        width: 100%; /* جعل الفورم يأخذ العرض الكامل */
+      }
+    
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select {
+        font-size: 0.9rem; /* تصغير حجم النصوص داخل الحقول */
+        padding: 8px; /* تقليل الحشوة الداخلية */
+      }
+    
+      .contact-form button {
+        font-size: 0.9rem; /* تصغير النص داخل الزر */
+        padding: 12px; /* تقليل الحشوة */
+      }
+    }
+    
+    
+    

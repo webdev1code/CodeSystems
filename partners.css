@@ -1,0 +1,309 @@
+/* تحسين شريط العناوين */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 0; /* تقليل ارتفاع الشريط */
+  text-align: center;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* جعل القائمة في صف واحد */
+.navbar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* تقليل المسافة بين العناصر */
+.navbar-links li {
+  position: relative;
+  margin: 0 8px; /* تقليل المسافة الجانبية بين العناوين */
+}
+
+/* تصغير المسافة داخل الأزرار */
+.navbar-links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 18px; /* يمكن تصغيره أكثر لو أردت */
+  font-weight: bold;
+  padding: 6px 10px; /* تقليل المسافة الداخلية */
+  transition: 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #f4a261;
+}
+/* تعديل التصميم على الشاشات الصغيرة (الموبايل) */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column; /* يجعل القائمة عمودية على الشاشات الصغيرة */
+      padding: 5px 0;
+  }
+
+  .navbar-links {
+      flex-direction: row; /* يجبر العناصر على البقاء في صف واحد */
+      overflow-x: auto; /* يسمح بالتمرير إذا لم تتسع العناصر */
+      white-space: nowrap; /* يمنع نزول العناصر إلى سطر جديد */
+      width: 100%;
+      justify-content: flex-start;
+      padding: 0 10px;
+  }
+
+  .navbar-links a {
+      font-size: 14px; /* تصغير الخط */
+      padding: 8px 10px; /* تقليل المسافات */
+  }
+}
+
+
+
+/* تحسين القائمة المنسدلة */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 1;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    list-style: none;
+    padding: 0;
+    min-width: 200px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    color: white;
+}
+
+.dropdown-menu a:hover {
+    color: #f4a261;
+}
+
+/* تحسين شبكة الصور */
+.container {
+    max-width: 1200px;
+    margin: 100px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.image-grid img:hover {
+    transform: scale(1.1);
+}
+
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  
+    /* الجزء الأيسر */
+    .left-section {
+      background-color: #001f3f; /* الخلفية الكحلية */
+      color: white;
+      flex: 1; /* تقسيم الصفحة بالتساوي */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 30px; /* زيادة الحشوة لتوسيع المسافة بين المحتوى والحواف */
+    }
+    
+    .contact-title {
+      font-size: 3rem;
+      margin-bottom: 60px;
+      margin-left: 20px; /* لإبعاد العنوان عن الحافة اليسرى */
+    }
+    
+    .contact-info {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      margin-left: 20px; /* لإبعاد النصوص عن الحافة اليسرى */
+    }
+    
+    .contact-info i {
+      margin-right: 10px; /* المسافة بين الأيقونات والنص */
+    }
+    
+    /* تنسيق الأزرار */
+    .social-media {
+      text-align: center;
+      margin-top: 20px;  /* تعديل المسافة العلوية حسب الحاجة */
+    }
+    
+    /* تعديل زر الأيقونات */
+  .social-button {
+    background-color: transparent;  /* خلفية شفافة */
+    border: none;                   /* إزالة الحدود */
+    padding: 10px;                  /* زيادة المساحة الداخلية للزر */
+    width: 70px;                    /* تحديد عرض الزر */
+    height: 70px;                   /* تحديد ارتفاع الزر */
+    display: inline-block;          /* لجعل الزر يتصرف كعنصر كتلي */
+    cursor: pointer;                /* تغيير شكل المؤشر عند المرور */
+  }
+    .social-button:hover {
+      background-color: #365899; /* تغيير اللون عند التمرير */
+    }
+    /* تعديل الصورة داخل الزر لتعبئته بالكامل */
+  .social-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+    /* الجزء الأيمن */
+    .right-section {
+      background-color: white; /* الخلفية البيضاء */
+      color: #001f3f; /* النص باللون الكحلي */
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px;
+    }
+    
+    .quotation-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .service-text {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-form label {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    .contact-form button {
+      background-color: orange;
+      color: white;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+    }
+    
+    .contact-form button:hover {
+      background-color: darkorange;
+    }
+    
+    
+    /* استجابة الشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column; /* ترتيب الأقسام عموديًا */
+        height: auto; /* جعل الارتفاع تلقائيًا */
+      }
+    
+      /* الجزء الأيسر */
+      .left-section {
+        padding: 20px; /* تقليل الحشوة */
+        text-align: center; /* توسيط النصوص */
+      }
+    
+      .contact-title {
+        font-size: 2rem; /* تصغير حجم العنوان */
+        margin-bottom: 30px; /* تقليل المسافة السفلية */
+        margin-left: 0; /* إزالة المسافة الجانبية */
+      }
+    
+      .contact-info {
+        font-size: 0.9rem; /* تصغير حجم النص */
+        margin-left: 0; /* إزالة المسافة الجانبية */
+      }
+    
+      .social-media {
+        justify-content: center; /* توسيط الأزرار */
+        margin-left: 0; /* إزالة المسافة الجانبية */
+      }
+    
+      .social-button {
+        width: 50px; /* تصغير عرض الزر */
+        height: 50px; /* تصغير ارتفاع الزر */
+      }
+    
+      /* الجزء الأيمن */
+      .right-section {
+        padding: 20px; /* تقليل الحشوة */
+        text-align: center; /* توسيط النصوص */
+      }
+    
+      .quotation-title {
+        font-size: 2rem; /* تصغير حجم العنوان */
+        margin-bottom: 15px; /* تقليل المسافة السفلية */
+      }
+    
+      .service-text {
+        font-size: 1rem; /* تصغير النص */
+        margin-bottom: 15px; /* تقليل المسافة السفلية */
+      }
+    
+      .contact-form {
+        width: 100%; /* جعل الفورم يأخذ العرض الكامل */
+      }
+    
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select {
+        font-size: 0.9rem; /* تصغير حجم النصوص داخل الحقول */
+        padding: 8px; /* تقليل الحشوة الداخلية */
+      }
+    
+      .contact-form button {
+        font-size: 0.9rem; /* تصغير النص داخل الزر */
+        padding: 12px; /* تقليل الحشوة */
+      }
+    }
+    
+    
+    
