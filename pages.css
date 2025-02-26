@@ -214,6 +214,7 @@ body {
     width: 80%; /* تحديد عرض قسم المنتجات ليكون 80% من العرض الكلي للصفحة */
     margin-right: 20px; /* إضافة مسافة 20px من الجهة اليمنى لقسم المنتجات */
 }
+
 /* تنسيق السعر داخل مستطيل */
 .product-card .price {
   display: inline-block;
@@ -226,7 +227,6 @@ body {
   margin-top: 10px;
   text-align: center;
 }
-
 /* الفلاتر */
 .filters {
     display: flex; /* استخدام Flexbox لترتيب الفلاتر بشكل أفقي */
