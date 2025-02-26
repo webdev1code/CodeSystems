@@ -214,6 +214,18 @@ body {
     width: 80%; /* تحديد عرض قسم المنتجات ليكون 80% من العرض الكلي للصفحة */
     margin-right: 20px; /* إضافة مسافة 20px من الجهة اليمنى لقسم المنتجات */
 }
+/* تنسيق السعر داخل مستطيل */
+.product-card .price {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(113, 113, 113);
+  background-color: #ededed; /* لون الخلفية */
+  padding: 8px 15px; /* تكبير حجم المستطيل */
+  border-radius: 5px; /* جعل الحواف مستديرة */
+  margin-top: 10px;
+  text-align: center;
+}
 
 /* الفلاتر */
 .filters {
