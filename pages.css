@@ -125,7 +125,7 @@ body {
     height: 100%;
     box-sizing: border-box;
     overflow: auto;
-    display: block; /* في الشاشات الكبيرة */
+   position: absolute;
 }
 
 /* العناوين داخل القائمة الجانبية */
@@ -175,10 +175,14 @@ body {
 }
 
 /* استعلامات الوسائط لتصميم متجاوب مع الشاشات الصغيرة */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .products-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
     /* إخفاء القائمة الجانبية في الشاشات الصغيرة */
     .sidebar {
-        display: none;
+      position: absolute;
         position: fixed;
         top: 0;
         left: 0;
@@ -204,6 +208,9 @@ body {
         cursor: pointer;
     }
 
+    .sidebar.open {
+        left: 0; /* إظهار القائمة عند الحاجة */
+    }
     /* تأثير عند التمرير على الزر */
     .sidebar-button:hover {
         background-color: #045b9e;
@@ -279,11 +286,11 @@ body {
 /* المنتجات */
 .products-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
   width: 90%;
-  background: white; /* خلفية بيضاء */
+  background: white;
 }
 
 .product-card {
@@ -293,8 +300,8 @@ body {
 .product-card img {
   width: 100%;
   height: auto;
+  max-width: 100%;
 }
-
 .product-card {
   box-shadow: none;  /* إزالة الظل */
   border: none;      /* إزالة البراويز */
@@ -346,10 +353,11 @@ body {
 }
 /* دعم الشاشات الصغيرة */
 @media (max-width: 768px) {
-    .product {
-        width: calc(50% - 20px); /* تغيير عرض المنتج ليصبح 50% بحيث يكون هناك منتجان في السطر */
-    }
-
+  .products-section {
+    width: 100%;
+    margin: 0;
+  }
+}
     .product h4 {
         font-size: 16px; /* تقليل حجم الخط لاسم المنتج ليتناسب مع الشاشات الصغيرة */
     }
